@@ -14,7 +14,7 @@ export type DataFoodType = {
 
 type ModalAddFoodProps = {
   setIsOpen: () => void;
-  handleAddFood: (data: DataFoodType) => void;
+  handleAddFood: (food: DataFoodType) => Promise<void>;
   isOpen: boolean; 
 }
 
