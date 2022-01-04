@@ -16,7 +16,7 @@ export function Header({ openModal }: HeaderProps) {
           <div>
             <button
               type="button"
-              onClick={() => openModal()}
+              onClick={openModal}
             >
               <div className="text">Novo Prato</div>
               <div className="icon">

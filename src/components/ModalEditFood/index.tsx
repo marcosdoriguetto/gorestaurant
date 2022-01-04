@@ -14,7 +14,7 @@ type ModalEditFoodProps = {
 }
 
 export function ModalEditFood({ isOpen, setIsOpen, editingFood, handleUpdateFood }: ModalEditFoodProps) {
-  const formRef = useRef();
+  const formRef = useRef(null);
 
   const handleSubmit = async (data: FoodType) => {
     handleUpdateFood(data);
@@ -23,7 +23,7 @@ export function ModalEditFood({ isOpen, setIsOpen, editingFood, handleUpdateFood
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <Form ref={formRef.current} onSubmit={handleSubmit} initialData={editingFood}>
+      <Form ref={formRef} onSubmit={handleSubmit} initialData={editingFood}>
         <h1>Editar Prato</h1>
         <Input name="image" placeholder="Cole o link aqui" />
 

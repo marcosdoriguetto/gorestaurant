@@ -1,5 +1,5 @@
 
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode } from 'react';
 import ReactModal from 'react-modal';
 
 type ModalType = {
@@ -9,26 +9,11 @@ type ModalType = {
 }
 
 export function Modal({ isOpen, children, setIsOpen }: ModalType) {
-  const [modalStatus, setModalStatus] = useState(isOpen);
-  const modalStatusRef = useRef<boolean>();
-
-  useEffect(() => {
-    modalStatusRef.current = modalStatus;
-  });
-  
-  const modalStatusRefValue = modalStatusRef.current ?? modalStatus;
-
-  useEffect(() => {
-    if (modalStatusRefValue !== modalStatus) {
-      setModalStatus(modalStatusRefValue)
-    }
-  }, [modalStatus, modalStatusRefValue])
-
   return (
     <ReactModal
       shouldCloseOnOverlayClick={!false}
       onRequestClose={setIsOpen}
-      isOpen={modalStatus}
+      isOpen={isOpen}
       ariaHideApp={false}
       style={{
         content: {
